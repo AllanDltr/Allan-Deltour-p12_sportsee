@@ -1,0 +1,23 @@
+.average__session {
+	height: 263px;
+	width: 258px;
+	background-color: red;
+	border-radius: 5px;
+}
+
+.average__title {
+	color: white;
+	font-size: 15px;
+	font-weight:500px;
+	opacity:50%;
+	height:48px;
+	width:147px;
+	margin-left: 10px;
+}
+
+.session__tooltip {
+	background-color: white;
+	padding: 0.5rem;
+	color: black;
+	font-size: 12px;
+}

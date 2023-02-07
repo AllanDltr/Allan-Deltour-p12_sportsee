@@ -1,0 +1,30 @@
+.error {
+    position: absolute;
+    text-align: center;
+    top:30%;
+}
+.error__title {
+    font-size: 64px;
+    font-weight: 700;
+    height: 100px;
+    margin-left: 40%;
+    color:white;
+}
+
+.error__subtitle  {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 51px;
+    margin-left:40%;
+    color:white;
+}
+
+.error__returnLink {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-top: 10px;
+    color:white;
+    margin-left:40%;
+}
