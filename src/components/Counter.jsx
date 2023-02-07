@@ -1,5 +1,5 @@
 import React from 'react';
-import { USER_MAIN_DATA } from "../datas/Mocked";
+import { USER_MAIN_DATA } from "../datas/mocked";
 import '../styles/Counter.css'
 import apple from '../assets/apple.svg';
 import cheeseburger from '../assets/cheeseburger.svg';
