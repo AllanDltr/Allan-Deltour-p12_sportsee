@@ -16,15 +16,15 @@ const Nav = () => {
                 <div> Accueil </div>
             </NavLink>
 
-            <NavLink className="navbar__link" to="/Profile">
+            <NavLink className="navbar__link">
                 <div> Profil </div>
             </NavLink>
 
-            <NavLink className="navbar__link" to="/Reglages">
+            <NavLink className="navbar__link">
                 <div> Reglages </div>
             </NavLink>
 
-            <NavLink className="navbar__link" to="/Communautes">
+            <NavLink className="navbar__link">
                 <div> Communautés </div>
             </NavLink>
             </nav>

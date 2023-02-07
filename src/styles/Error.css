@@ -2,13 +2,14 @@
     position: absolute;
     text-align: center;
     top:30%;
+    left:10%;
 }
 .error__title {
     font-size: 64px;
     font-weight: 700;
     height: 100px;
     margin-left: 40%;
-    color:white;
+    color:black;
 }
 
 .error__subtitle  {
@@ -16,7 +17,7 @@
     font-size: 36px;
     line-height: 51px;
     margin-left:40%;
-    color:white;
+    color:black;
 }
 
 .error__returnLink {
@@ -25,6 +26,6 @@
     font-size: 18px;
     text-decoration: underline;
     margin-top: 10px;
-    color:white;
+    color:black;
     margin-left:40%;
 }
