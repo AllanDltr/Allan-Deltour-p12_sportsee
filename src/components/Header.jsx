@@ -11,7 +11,6 @@ import { USER_MAIN_DATA } from '../datas/mocked'
  */
 
 const Header = ({firstname}) => {
-
     return (
         <div className='header'>
           <h1>Bonjour <span className='header__name'>{firstname}</span></h1> 
@@ -23,5 +22,5 @@ const Header = ({firstname}) => {
 export default Header;
 
 Header.propTypes = {
-	firstname: PropTypes.string
+	firstname: PropTypes.string.isRequired
 }

@@ -9,7 +9,6 @@ const RadialCharts = (userId) => {
     const userIndex = USER_MAIN_DATA.findIndex((obj) => {
         return obj.id === userId.id;
     });
-    console.log(userIndex+ "radial")
     const userData = USER_MAIN_DATA[userIndex].todayScore;
     const Score = [
         {
