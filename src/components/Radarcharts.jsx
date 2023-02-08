@@ -12,12 +12,12 @@ const Radarcharts = ({userId}) => {
     
     const userData = USER_PERFORMANCE[userIndex].data;
     const Kind = [
-    'cardio',
-    'energy',
-    'endurance',
-    'strength',
-    'speed',
-    'intensity'
+    'Cardio',
+    'Energie',
+    'Endurance',
+    'Force',
+    'Vitesse',
+    'Intensité'
     ];
 
     let stat = userData.map(({value, kind}) => {
