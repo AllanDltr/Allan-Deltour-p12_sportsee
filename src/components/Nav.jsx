@@ -1,33 +1,22 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/Nav.css'
-import logos from '../assets/logo.svg'
+import logo from '../assets/logo.svg'
 
 const Nav = () => {
-    const logo = <img src={logos} alt="Logo Sportsee" />
-
     return (
-        <nav className="navbar__h">
-            <NavLink className="navbar__logo" to="/">
-                {logo}
-            </NavLink>
+    <div className="navbar__h">
+        <img className="logo" src={logo} alt="Logo Sportsee" />
+            <nav className='nav__h'>
+                <span className="navbar__link" to="/Home"> Accueil </span>
 
-            <NavLink className="navbar__link" to="/Home">
-                <div> Accueil </div>
-            </NavLink>
+                <span className="navbar__link"> Profil </span>
 
-            <NavLink className="navbar__link">
-                <div> Profil </div>
-            </NavLink>
+                <span className="navbar__link"> Réglages </span>
 
-            <NavLink className="navbar__link">
-                <div> Reglages </div>
-            </NavLink>
-
-            <NavLink className="navbar__link">
-                <div> Communautés </div>
-            </NavLink>
+                <span className="navbar__link"> Communautés </span>
             </nav>
+    </div>
     )
 
 }
