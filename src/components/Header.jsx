@@ -10,11 +10,11 @@ import { USER_MAIN_DATA } from '../datas/mocked'
  * @returns A div with a h1 with the name of the user and a paragraph.
  */
 
-const Header = ({firstname}) => {
+const Header = ({firstName}) => {
     return (
         <div className='header'>
-          <h1>Bonjour <span className='header__name'>{firstname}</span></h1> 
-          <p>Félicitations! Vous avez explosé vos objectifs hier 👏 </p> 
+          <h1>Bonjour <span className='header__name'>{firstName}</span></h1>
+          <p>Félicitations! Vous avez explosé vos objectifs hier 👏 </p>
         </div>
     );
 };
@@ -22,5 +22,5 @@ const Header = ({firstname}) => {
 export default Header;
 
 Header.propTypes = {
-	firstname: PropTypes.string.isRequired
+	firstName: PropTypes.string.isRequired
 }
