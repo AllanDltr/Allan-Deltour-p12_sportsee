@@ -37,7 +37,7 @@ const Home = () => {
                             </div>
                             </div>
 
-                            <div className="Dashboard__charts--second-column"> 
+                            <div className="Dashboard__charts--second-column">
                                 <Counter id={id} />
                         </div>
                         </div>
