@@ -10,7 +10,7 @@ The goal of this repository/project is to develop a new Dashboard's version of t
   
   ---
   
-  # BACK-END
+  # 1. BACK-END
   
   The back-end of this project require [Node.js](https://nodejs.org/en/) and a package manager such as npm or yarn.
   
@@ -35,11 +35,20 @@ The goal of this repository/project is to develop a new Dashboard's version of t
   npm run dev 
   ```
   
-  URL
+  <strong> URL </strong>
   
   The default url with Vite package will be [localhost:5173](http://localhost:5173/)
   
   ---
   
-  # FRONT-END
+  # 2. FRONT-END
+  
+   - To get the front-end, you have to clone it locally from
+  
+  ```
+   git clone https://github.com/AllanDltr/OC-DAJR-P12-Sportsee.git
+  ```
+  
+  
+  
   
