@@ -1,8 +1,6 @@
 import React from 'react'
-import '../styles/Header.css'
 import PropTypes from 'prop-types'
-import API from '../datas/api'
-import { USER_MAIN_DATA } from '../datas/mocked'
+import '../styles/Header.css'
 
 /**
  * The Header component is a React component that renders a header with a name and a paragraph

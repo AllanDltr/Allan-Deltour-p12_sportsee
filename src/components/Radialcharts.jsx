@@ -1,10 +1,15 @@
 import React from "react";
-import API from "../datas/api";
 import { USER_MAIN_DATA } from "../datas/mocked";
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import '../styles/Radialcharts.css'
 import propTypes from 'prop-types';
 
+
+/**
+ * This graph displays the score of the user based on an objective.
+ * @param {userId} userId
+ * @returns a graph with the score of the user. Presented in percentage and in a circle form.
+ */
 const RadialCharts = (userId) => {
     const userIndex = USER_MAIN_DATA.findIndex((obj) => {
         return obj.id === userId.id;

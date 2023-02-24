@@ -6,6 +6,12 @@ import cheeseburger from '../assets/cheeseburger.svg';
 import chicken from '../assets/chicken.svg';
 import energy from '../assets/energy.svg';
 
+/**
+ * This function renders the counter on the right.
+ * @param {userId}
+ * @returns The counter component on the right of the page.
+ */
+
 const Counter = (userId) => {
 
   const userIndex = USER_MAIN_DATA.findIndex((obj) => {
@@ -34,7 +40,7 @@ const Counter = (userId) => {
           <p>Protéines</p>
         </div>
       </div>
-      <div className="counter__icon--cell" >
+      <div className="counter__icon--cell">
         <div className="counter__icon" style={{backgroundColor:'#fff5cc'}}>
           <img src={apple} alt="Glucides" />
         </div>
@@ -43,7 +49,7 @@ const Counter = (userId) => {
           <p>Glucides</p>
         </div>
       </div>
-      <div className="counter__icon--cell" >
+      <div className="counter__icon--cell">
         <div className="counter__icon" style={{backgroundColor:'#ffe6f9'}}>
           <img src={cheeseburger} alt="Lipides" />
         </div>

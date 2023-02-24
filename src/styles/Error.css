@@ -1,23 +1,24 @@
 .error {
     position: absolute;
     text-align: center;
-    top:30%;
-    left:10%;
+    top: 30%;
+    left: 10%;
 }
+
 .error__title {
     font-size: 64px;
     font-weight: 700;
     height: 100px;
     margin-left: 40%;
-    color:black;
+    color: black;
 }
 
-.error__subtitle  {
+.error__subtitle {
     font-weight: 500;
     font-size: 36px;
     line-height: 51px;
-    margin-left:40%;
-    color:black;
+    margin-left: 40%;
+    color: black;
 }
 
 .error__returnLink {
@@ -26,6 +27,6 @@
     font-size: 18px;
     text-decoration: underline;
     margin-top: 10px;
-    color:black;
-    margin-left:40%;
+    color: black;
+    margin-left: 40%;
 }

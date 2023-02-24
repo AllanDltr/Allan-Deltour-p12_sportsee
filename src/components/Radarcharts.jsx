@@ -1,15 +1,18 @@
 import React from 'react'
-import API from '../datas/api'
 import { USER_PERFORMANCE } from '../datas/mocked'
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts'
 import '../styles/Radarcharts.css'
 import propTypes from 'prop-types'
 
+/**
+ * This graph is a radar chart. It shows the user's performance in 6 different categories.
+ * @param {userId} userId
+ * @returns A radar display of the user's performance.
+ */
 const Radarcharts = ({userId}) => {
     const userIndex = USER_PERFORMANCE.findIndex((user) => {
         return user.id === userId;
     });
-    
     const userData = USER_PERFORMANCE[userIndex].data;
     const Kind = [
     'Cardio',

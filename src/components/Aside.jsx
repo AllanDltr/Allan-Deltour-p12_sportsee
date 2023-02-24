@@ -6,7 +6,10 @@ import logoSwim from '../assets/logoSwim.svg'
 import logoBike from '../assets/logoBike.svg'
 import logoDumbbell from '../assets/logoDumbbell.svg'
 
-
+/**
+ *
+ * @returns The part "aside" on the left of the page
+ */
 const Aside = () => {
     const LogoYoga = <img src={logoYoga} alt="Logo yoga" />
     const LogoSwim = <img src={logoSwim} alt="Logo swimming" />
@@ -16,16 +19,16 @@ const Aside = () => {
     return (
         <div className="aside__v ">
             <nav className="navbar__aside__btns">
-                <NavLink className="navbar__aside__link" to="#Yoga">
+                <NavLink className="navbar__aside__link">
                     {LogoYoga}
                 </NavLink>
-                <NavLink className="navbar__aside__link" to="#Swim">
+                <NavLink className="navbar__aside__link">
                     {LogoSwim}
                 </NavLink>
-                <NavLink className="navbar__aside__link" to="#Bike">
+                <NavLink className="navbar__aside__link">
                     {LogoBike}
                 </NavLink>
-                <NavLink className="navbar__aside__link" to="#Dumbbell">
+                <NavLink className="navbar__aside__link">
                     {LogoDumbbell}
                 </NavLink>
             </nav>

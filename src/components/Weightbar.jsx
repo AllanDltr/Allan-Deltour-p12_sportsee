@@ -1,5 +1,4 @@
 import React from 'react';
-import API from '../datas/api';
 import PropTypes from 'prop-types';
 import { USER_ACTIVITY } from '../datas/mocked';
 import '../styles/Weightbar.css';

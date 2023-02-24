@@ -8,13 +8,6 @@
 * {
   font-family: Roboto;
 }
-/* #root {
-  width: 100vw;
-} */
-
-/* .app-content {
-  width: 100vw;
-} */
 
 html, body, .root {
     display: flex;

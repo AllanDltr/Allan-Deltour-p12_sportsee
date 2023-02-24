@@ -1,10 +1,14 @@
 import React from 'react';
-import API from '../datas/api';
 import PropTypes from 'prop-types';
 import { USER_AVERAGE_SESSIONS } from '../datas/mocked';
 import '../styles/Objectivecharts.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
 
+/**
+ * This graph displays the average session length of the user during the week (starting on Monday).
+ * @param {userId} userId
+ * @returns a line chart with the average session length of the user during the week.
+ */
 const ObjectiveCharts = (userId) => {
     const userIndex = USER_AVERAGE_SESSIONS.findIndex((obj) => {
         return obj.userId === userId.id

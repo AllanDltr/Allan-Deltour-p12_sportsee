@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import API from '../datas/api';
 import { USER_MAIN_DATA } from '../datas/mocked';
 import propTypes from 'prop-types';
 import Header from '../components/Header';
