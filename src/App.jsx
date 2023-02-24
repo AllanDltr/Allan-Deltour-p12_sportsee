@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useState} from 'react';
 import Nav from './components/Nav';
 import Aside from './components/Aside';
 import Home from './pages/Home';
