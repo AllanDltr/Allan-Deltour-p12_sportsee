@@ -16,8 +16,8 @@ import '../styles/Home.css';
  */
 
 const Home = () => {
-    // Standard ID for testing purposes is 12
-    const id=12;
+    // Standard ID for testing purposes is 18
+    const id=18;
     const userIndex = USER_MAIN_DATA.findIndex((user) => {
     return user.id === id;
 });
