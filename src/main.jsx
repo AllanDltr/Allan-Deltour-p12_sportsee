@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Error from './pages/Error'
+import API from '../src/datas/api'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
@@ -17,9 +18,22 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "*",
-    element: <Error />,
+    path: "/user/:userId",
+    element: <App />,
+  },
+  {
+    path: "/user/:userId/activity",
+    element: <App />,
+  },
+  {
+    path: "/user/:userId/average-sessions",
+    element: <App />,
+  },
+  {
+    path: "/user/:userId/performance",
+    element: <App />,
   }
+
 ])
 
 root.render(

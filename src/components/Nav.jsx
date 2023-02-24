@@ -12,7 +12,7 @@ const Nav = () => {
     <div className="navbar__h">
         <img className="logo" src={logo} alt="Logo Sportsee"/>
             <nav className='nav__h'>
-                <NavLink className="navbar__link" to="/Home" alt="Accueil"> Accueil </NavLink>
+                <NavLink className="navbar__link" to="/" alt="Accueil"> Accueil </NavLink>
 
                 <span className="navbar__link" alt="Profil"> Profil </span>
 

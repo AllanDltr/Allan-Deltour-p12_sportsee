@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default class API {
   constructor() {
-    this.endpoint = 'http://localhost:3000'
+    this.endpoint = 'http://localhost:5173'
   }
   async getUser(id) {
     const res = await axios.get(`${this.endpoint}/user/${id}`)
@@ -16,6 +16,11 @@ export default class API {
 
   async getAverageSessions(id) {
     const res = await axios.get(`${this.endpoint}/user/${id}/average-sessions`)
+    return res.data
+  }
+
+  async getPerformance(id) {
+    const res = await axios.get(`${this.endpoint}/user/${id}/performance`)
     return res.data
   }
 }
