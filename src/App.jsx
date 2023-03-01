@@ -11,13 +11,12 @@ import './App.css';
  * @returns {JSX.Element} - The global interface of the App
  */
 const App = () => {
-    const [userId, setUserId] = useState(12);
     return (
         <div className='App'>
-              <Nav currentUser={[userId.setUserId]}/>
+              <Nav />
               <div className='app-content'>
               <Aside/>
-              <Home userId={userId} />
+              <Home/>
               </div>
         </div>
     )
