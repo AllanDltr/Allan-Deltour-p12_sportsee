@@ -7,6 +7,8 @@ import Weightbar  from '../components/Weightbar';
 import ObjectiveCharts from '../components/Objectivecharts';
 import RadarCharts from '../components/Radarcharts';
 import RadialCharts from '../components/Radialcharts';
+import API from '../datas/api';
+import { useParams } from 'react-router-dom';
 import '../styles/Home.css';
 
 /**
@@ -16,11 +18,12 @@ import '../styles/Home.css';
  */
 
 const Home = () => {
-    // Standard ID for testing purposes is 18
-    const id=18;
-    const userIndex = USER_MAIN_DATA.findIndex((user) => {
-    return user.id === id;
-});
+    let { userId } = useParams();
+        if (userId === undefined || "") {
+            userId = 18;
+        }
+    userId = Number(userId);
+    const userIndex = USER_MAIN_DATA.findIndex((user => user.id === userId));
     const userData = USER_MAIN_DATA[userIndex].userInfos;
     return (
         <section className="Dashboard">
@@ -28,16 +31,16 @@ const Home = () => {
                     <Header firstName={userData.firstName} />
                         <div className="Dashboard__charts">
                             <div className="Dashboard__charts--first-column">
-                                <Weightbar id={id} />
+                                <Weightbar id={userId} />
                             <div className="Dashboard__charts--first-column2">
-                                <ObjectiveCharts id={id} />
-                                <RadarCharts id={id} />
-                                <RadialCharts id={id} />
+                                <ObjectiveCharts id={userId} />
+                                <RadarCharts id={userId} />
+                                <RadialCharts id={userId} />
                             </div>
                             </div>
 
                             <div className="Dashboard__charts--second-column">
-                                <Counter id={id} />
+                                <Counter id={userId} />
                         </div>
                         </div>
             </Fragment>
@@ -47,5 +50,5 @@ const Home = () => {
 
 export default Home
 Home.propTypes = {
-	userId: propTypes.number.isRequired,
+	// userId: propTypes.number.isRequired,
 };
