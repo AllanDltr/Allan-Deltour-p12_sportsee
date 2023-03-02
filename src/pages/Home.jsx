@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import { USER_MAIN_DATA } from '../datas/mocked';
-import propTypes from 'prop-types';
 import Header from '../components/Header';
 import Counter from '../components/Counter';
 import Weightbar  from '../components/Weightbar';
 import ObjectiveCharts from '../components/Objectivecharts';
 import RadarCharts from '../components/Radarcharts';
 import RadialCharts from '../components/Radialcharts';
-import API from '../datas/api';
 import { useParams } from 'react-router-dom';
 import '../styles/Home.css';
 
