@@ -1,26 +1,34 @@
-import React from "react";
-import { USER_MAIN_DATA } from "../datas/mocked";
+import React, {useEffect, useState} from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import '../styles/Radialcharts.css'
 import propTypes from 'prop-types';
+import { getUser } from '../datas/api';
 
 
 /**
  * This graph displays the score of the user based on an objective.
- * @param {userId} userId
+ * @param {user} user
  * @returns a graph with the score of the user. Presented in percentage and in a circle form.
  */
-const RadialCharts = (userId) => {
-    const userIndex = USER_MAIN_DATA.findIndex((obj) => {
-        return obj.id === userId.id;
-    });
-    const userData = USER_MAIN_DATA[userIndex].todayScore;
-    const Score = [
+const RadialCharts = (user) => {
+    const [data, setData] = useState(0);
+
+    useEffect(() => {
+        getUser(user.id)
+        .then((response) => {
+            // console.log(response.data)
+            setData(response.data.todayScore);
+        })
+        .catch((err) => console.log(err));
+    }, [user.id]);
+
+    const score = [
         {
-            score: userData * 100,
+            score: data * 100,
             fill: "#ff0000",
         },
     ];
+
     return (
         <div className="score__chart">
             <ResponsiveContainer width="100%" height="100%">
@@ -29,12 +37,12 @@ const RadialCharts = (userId) => {
                 cx ="50%"
                 innerRadius="50%"
                 barSize={10}
-                data={Score}
+                data={score}
                 startAngle={75}
                 endAngle={-285}
                 >
-                    <text className="graph__title" 
-                    x="17%" 
+                    <text className="graph__title"
+                    x="17%"
                     y="17%"
                     fill="#979797"
                     textAnchor="middle"
@@ -42,7 +50,7 @@ const RadialCharts = (userId) => {
                     Score
                     </text>
                     <text className="graph__score__legend" x="50%" y="42%" textAnchor="middle" dominantBaseline={"middle"} style={{fontSize:20, fontWeight:800}} >
-                        {userData * 100}%
+                        {data * 100}%
                     </text>
                     <text className="graph__score__legend" x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" >
                     de votre
@@ -59,5 +67,5 @@ const RadialCharts = (userId) => {
 
 export default RadialCharts;
 RadialCharts.prototype = {
-    userId: propTypes.number.isRequired,
+    user: propTypes.number.isRequired,
 }

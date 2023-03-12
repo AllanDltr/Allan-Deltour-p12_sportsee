@@ -1,29 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { USER_AVERAGE_SESSIONS } from '../datas/mocked';
 import '../styles/Objectivecharts.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { getAverageSessions } from '../datas/api';
 
 /**
  * This graph displays the average session length of the user during the week (starting on Monday).
- * @param {userId} userId
+ * @param {user} user
  * @returns a line chart with the average session length of the user during the week.
  */
-const ObjectiveCharts = (userId) => {
-    const userIndex = USER_AVERAGE_SESSIONS.findIndex((obj) => {
-        return obj.userId === userId.id
-    });
+const ObjectiveCharts = (user) => {
+    const [dataSessions, setDataSessions] = useState([]);
 
-const userData = USER_AVERAGE_SESSIONS[userIndex].sessions;
-const days = ["L", "M", "M", "J", "V", "S", "D"]
-const sessions = [];
+    const days = ["L", "M", "M", "J", "V", "S", "D"]
 
-userData.forEach((session) => {
-    sessions.push({
-        name:days[session.day-1],
-        sessionLength:session.sessionLength,
-    });
-});
+    const transformDataForGraph = (data) => {
+        const sessions = data.sessions.map((session) => {
+            return {
+                name:days[session.day - 1],
+                sessionLength: session.sessionLength,
+            }});
+            return sessions
+        };
+
+    useEffect(() => {
+        getAverageSessions(user.id)
+            .then((response) => {
+                // console.log(response)
+                const transformedData = transformDataForGraph(response);
+                setDataSessions(transformedData);
+            })
+            .catch((err) => console.log(err));
+        }, [user.id]);
 
 const Title = () => {
     return <div className="average__title"> Durée moyenne des sessions </div>;
@@ -47,7 +55,7 @@ return (
             <LineChart
                 width= {500}
                 height= {300}
-                data={sessions}
+                data={dataSessions}
                 margin={{
                     top: 20,
                     right: 15,
@@ -73,5 +81,5 @@ return (
 
         export default ObjectiveCharts;
         ObjectiveCharts.prototype = {
-            userId: PropTypes.number.isRequired
+            user: PropTypes.number.isRequired
         }

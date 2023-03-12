@@ -1,19 +1,16 @@
-import React from 'react'
-import { USER_PERFORMANCE } from '../datas/mocked'
+import React, {useState, useEffect} from 'react'
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts'
 import '../styles/Radarcharts.css'
 import propTypes from 'prop-types'
+import { getPerformance } from '../datas/api'
 
 /**
  * This graph is a radar chart. It shows the user's performance in 6 different categories.
- * @param {userId} userId
+ * @param {user} user
  * @returns A radar display of the user's performance.
  */
-const Radarcharts = ({userId}) => {
-    const userIndex = USER_PERFORMANCE.findIndex((user) => {
-        return user.id === userId;
-    });
-    const userData = USER_PERFORMANCE[userIndex].data;
+const Radarcharts = (user) => {
+    const [data, setData] = useState([]);
     const Kind = [
     'Cardio',
     'Energie',
@@ -23,12 +20,26 @@ const Radarcharts = ({userId}) => {
     'Intensité'
     ];
 
-    let stat = userData.map(({value, kind}) => {
+    const transformDataForGraph = (data) => {
+        const arrayData = data.data.map(({value, kind}) => {
         return {
             value: value,
             kind: Kind[kind-1],
         };
     });
+    return arrayData;
+};
+
+useEffect(() => {
+    getPerformance(user.id)
+    .then((response) => {
+        // console.log(response)
+        const transformedData = transformDataForGraph(response);
+        setData(transformedData);
+    })
+    .catch((err) => console.log(err));
+}, [user.id]);
+
     return (
         <div className="radar__chart">
             <ResponsiveContainer width="100%" height="100%">
@@ -36,7 +47,7 @@ const Radarcharts = ({userId}) => {
                     cx='50%'
                     cy='50%'
                     outerRadius={80}
-                    data={stat}
+                    data={data}
                     >
                     <PolarGrid radialLines={false}/>
                     <PolarAngleAxis dataKey="kind"/>
@@ -54,5 +65,5 @@ const Radarcharts = ({userId}) => {
 export default Radarcharts;
 
 Radarcharts.prototype = {
-    userId: propTypes.number.isRequired,
+    user: propTypes.number.isRequired,
 }

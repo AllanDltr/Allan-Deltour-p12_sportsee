@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getUser } from '../datas/api'
 import '../styles/Header.css'
 
 /**
@@ -19,6 +20,6 @@ const Header = ({firstName}) => {
 
 export default Header;
 
-Header.propTypes = {
-	firstName: PropTypes.string.isRequired
-}
+// Header.propTypes = {
+// 	firstName: PropTypes.string.isRequired
+// }

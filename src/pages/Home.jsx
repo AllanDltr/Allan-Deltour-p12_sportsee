@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { USER_MAIN_DATA } from '../datas/mocked';
+import React, { Fragment, useEffect, useState } from 'react';
+import { getUser } from '../datas/api';
 import Header from '../components/Header';
 import Counter from '../components/Counter';
 import Weightbar  from '../components/Weightbar';
@@ -15,18 +15,34 @@ import '../styles/Home.css';
  * @returns The Homepage component is returning a div element with all the informations and graphics.
  */
 
-const Home = () => {
+const Home = (user) => {
+    const [data, setData] = useState([]);
     let { userId } = useParams();
         if (userId === undefined || "") {
             userId = 18;
         }
-    userId = Number(userId);
-    const userIndex = USER_MAIN_DATA.findIndex((user => user.id === userId));
-    const userData = USER_MAIN_DATA[userIndex].userInfos;
+        userId = Number(userId);
+
+    const transformDataForGraph = (data) => {
+        const arrayData = data.data.userInfos
+        return arrayData;
+    };
+
+useEffect(() => {
+    getUser(userId)
+        .then((response) => {
+            // console.log(response)
+            const transformedData = transformDataForGraph(response);
+            setData(transformedData);
+        })
+        .catch((err) => console.log(err));
+}, [userId]);
+
+
     return (
         <section className="Dashboard">
             <Fragment>
-                    <Header firstName={userData.firstName} />
+                    <Header firstName={data.firstName} />
                         <div className="Dashboard__charts">
                             <div className="Dashboard__charts--first-column">
                                 <Weightbar id={userId} />
@@ -47,6 +63,3 @@ const Home = () => {
 }
 
 export default Home
-Home.propTypes = {
-	// userId: propTypes.number.isRequired,
-};

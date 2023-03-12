@@ -1,26 +1,23 @@
 import axios from 'axios'
 
-export default class API {
-  constructor() {
-    this.endpoint = 'http://localhost:5173'
-  }
-  async getUser(id) {
-    const res = await axios.get(`${this.endpoint}/user/${id}`)
+const endpoint = 'http://localhost:3000'
+
+  export async function getUser(id) {
+    const res = await axios.get(`${endpoint}/user/${id}`)
     return res.data
   }
 
-  async getUserActivity(id) {
-    const res = await axios.get(`${this.endpoint}/user/${id}/activity`)
-    return res.data
+  export async function getUserActivity(id) {
+    const res = await axios.get(`${endpoint}/user/${id}/activity`)
+    return res.data.data
   }
 
-  async getAverageSessions(id) {
-    const res = await axios.get(`${this.endpoint}/user/${id}/average-sessions`)
-    return res.data
+  export async function getAverageSessions(id) {
+    const res = await axios.get(`${endpoint}/user/${id}/average-sessions`)
+    return res.data.data
   }
 
-  async getPerformance(id) {
-    const res = await axios.get(`${this.endpoint}/user/${id}/performance`)
-    return res.data
+  export async function getPerformance(id) {
+    const res = await axios.get(`${endpoint}/user/${id}/performance`)
+    return res.data.data
   }
-}

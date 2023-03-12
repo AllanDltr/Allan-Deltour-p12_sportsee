@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import Error from './pages/Error'
-import API from '../src/datas/api'
+// import Error from './pages/Error'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
