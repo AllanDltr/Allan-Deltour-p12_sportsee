@@ -17,7 +17,7 @@ const RadialCharts = (user) => {
         getUser(user.id)
         .then((response) => {
             // console.log(response.data)
-            setData(response.data.todayScore);
+            setData(response.data?.todayScore || response.data?.score);
         })
         .catch((err) => console.log(err));
     }, [user.id]);
