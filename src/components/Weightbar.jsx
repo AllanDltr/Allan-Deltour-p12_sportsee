@@ -2,16 +2,8 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getUserActivity } from "../datas/api";
 import "../styles/Weightbar.css";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  CartesianGrid,
-} from "recharts";
+import {BarChart,Bar,XAxis,YAxis,Tooltip,Legend,ResponsiveContainer,CartesianGrid} from "recharts";
+import {transformDataWeightbarGraph} from "../datas/transformGraph";
 
 /**
  * This graph displays the weight and calories burned by the user during the week.
@@ -22,22 +14,10 @@ import {
 const WeeklyCharts = (user) => {
   const [data, setData] = useState([]);
 
-  const transformDataForGraph = (data) => {
-    const arrayData = data.sessions.map(({ kilogram, calories }, index) => {
-      return {
-        kilogram: kilogram,
-        calories: calories,
-        day: (index + 1).toString(),
-      };
-    });
-    return arrayData;
-  };
-
   useEffect(() => {
     getUserActivity(user.id)
       .then((response) => {
-        // console.log(response)
-        const transformedData = transformDataForGraph(response);
+        const transformedData = transformDataWeightbarGraph(response);
         setData(transformedData);
       })
       .catch((err) => console.log(err));
@@ -98,25 +78,25 @@ const WeeklyCharts = (user) => {
           />
           <YAxis yAxisId="calories" hide />
           <Tooltip content={<CustomTooltip />} />
-          <Legend
-            className="activityLegend"
-            verticalAlign="top"
-            align="right"
-            iconType={"circle"}
-            iconSize={8}
-            width={300}
-            height={25}
-            wrapperStyle={{ top: 13, right: 32 }}
-            formatter={(value) => {
-              return (
-                <span
-                  style={{ color: "#74798C", fontSize: 14, fontWeight: 500 }}
-                >
-                  {value}
-                </span>
-              );
-            }}
-          />
+            <Legend
+              className="activityLegend"
+              verticalAlign="top"
+              align="right"
+              iconType={"circle"}
+              iconSize={8}
+              width={300}
+              height={25}
+              wrapperStyle={{ top: 13, right: 32 }}
+              formatter={(value) => {
+                return (
+                  <span
+                    style={{ color: "#74798C", fontSize: 14, fontWeight: 500 }}
+                  >
+                    {value}
+                  </span>
+                );
+              }}
+            />
           <Tooltip />
 
           <Bar

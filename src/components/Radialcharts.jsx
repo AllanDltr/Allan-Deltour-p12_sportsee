@@ -4,7 +4,6 @@ import '../styles/Radialcharts.css'
 import propTypes from 'prop-types';
 import { getUser } from '../datas/api';
 
-
 /**
  * This graph displays the score of the user based on an objective.
  * @param {user} user
@@ -16,7 +15,6 @@ const RadialCharts = (user) => {
     useEffect(() => {
         getUser(user.id)
         .then((response) => {
-            // console.log(response.data)
             setData(response.data?.todayScore || response.data?.score);
         })
         .catch((err) => console.log(err));
@@ -33,14 +31,14 @@ const RadialCharts = (user) => {
         <div className="score__chart">
             <ResponsiveContainer width="100%" height="100%">
                 <RadialBarChart
-                cy ="50%"
-                cx ="50%"
-                innerRadius="50%"
-                barSize={10}
-                data={score}
-                startAngle={75}
-                endAngle={-285}
-                >
+                    cy ="50%"
+                    cx ="50%"
+                    innerRadius="50%"
+                    barSize={10}
+                    data={score}
+                    startAngle={75}
+                    endAngle={-285}
+                    >
                     <text className="graph__title"
                     x="17%"
                     y="17%"

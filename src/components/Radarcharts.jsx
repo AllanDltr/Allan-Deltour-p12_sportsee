@@ -3,6 +3,7 @@ import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis } fro
 import '../styles/Radarcharts.css'
 import propTypes from 'prop-types'
 import { getPerformance } from '../datas/api'
+import { transformDataRadarGraph } from '../datas/transformGraph'
 
 /**
  * This graph is a radar chart. It shows the user's performance in 6 different categories.
@@ -11,34 +12,15 @@ import { getPerformance } from '../datas/api'
  */
 const Radarcharts = (user) => {
     const [data, setData] = useState([]);
-    const Kind = [
-    'Cardio',
-    'Energie',
-    'Endurance',
-    'Force',
-    'Vitesse',
-    'Intensité'
-    ];
 
-    const transformDataForGraph = (data) => {
-        const arrayData = data.data.map(({value, kind}) => {
-        return {
-            value: value,
-            kind: Kind[kind-1],
-        };
-    });
-    return arrayData;
-};
-
-useEffect(() => {
-    getPerformance(user.id)
-    .then((response) => {
-        // console.log(response)
-        const transformedData = transformDataForGraph(response);
-        setData(transformedData);
-    })
-    .catch((err) => console.log(err));
-}, [user.id]);
+    useEffect(() => {
+        getPerformance(user.id)
+        .then((response) => {
+            const transformedData = transformDataRadarGraph(response);
+            setData(transformedData);
+        })
+        .catch((err) => console.log(err));
+    }, [user.id]);
 
     return (
         <div className="radar__chart">
@@ -52,9 +34,9 @@ useEffect(() => {
                     <PolarGrid radialLines={false}/>
                     <PolarAngleAxis dataKey="kind"/>
                     <Radar
-                    dataKey="value"
-                    fill='#FF0000'
-                    fillOpacity={0.75}
+                        dataKey="value"
+                        fill='#FF0000'
+                        fillOpacity={0.75}
                     />
                 </RadarChart>
             </ResponsiveContainer>
@@ -63,7 +45,6 @@ useEffect(() => {
 };
 
 export default Radarcharts;
-
 Radarcharts.prototype = {
     user: propTypes.number.isRequired,
 }

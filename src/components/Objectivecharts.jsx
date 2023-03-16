@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/Objectivecharts.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { getAverageSessions } from '../datas/api';
+import { transformDataObjectiveGraph } from '../datas/transformGraph';
 
 /**
  * This graph displays the average session length of the user during the week (starting on Monday).
@@ -12,22 +13,10 @@ import { getAverageSessions } from '../datas/api';
 const ObjectiveCharts = (user) => {
     const [dataSessions, setDataSessions] = useState([]);
 
-    const days = ["L", "M", "M", "J", "V", "S", "D"]
-
-    const transformDataForGraph = (data) => {
-        const sessions = data.sessions.map((session) => {
-            return {
-                name:days[session.day - 1],
-                sessionLength: session.sessionLength,
-            }});
-            return sessions
-        };
-
     useEffect(() => {
         getAverageSessions(user.id)
             .then((response) => {
-                // console.log(response)
-                const transformedData = transformDataForGraph(response);
+                const transformedData = transformDataObjectiveGraph(response);
                 setDataSessions(transformedData);
             })
             .catch((err) => console.log(err));
@@ -45,7 +34,6 @@ const CustomTooltip = ({ active, payload }) => {
             </div>
         );
     }
-
     return null;
 };
 
