@@ -5,13 +5,9 @@ import Error from '../components/Error'
 
 const Error404 = () => {
     return (
-        <div>
-            <main>
-                <Nav> </Nav>
-                <Aside> </Aside>
+        <>
                 <Error> </Error>
-            </main>
-        </div>
+        </>
     )
 }
 

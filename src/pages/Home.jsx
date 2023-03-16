@@ -6,6 +6,7 @@ import Weightbar  from '../components/Weightbar';
 import ObjectiveCharts from '../components/Objectivecharts';
 import RadarCharts from '../components/Radarcharts';
 import RadialCharts from '../components/Radialcharts';
+import {transformDataUserId} from '../datas/transformGraph';
 import { useParams } from 'react-router-dom';
 import '../styles/Home.css';
 
@@ -17,47 +18,39 @@ import '../styles/Home.css';
 
 const Home = (user) => {
     const [data, setData] = useState([]);
-    let { userId } = useParams();
+    let {userId} = useParams();
         if (userId === undefined || "") {
             userId = 18;
         }
-        userId = Number(userId);
+    userId = Number(userId);
 
-    const transformDataForGraph = (data) => {
-        const arrayData = data.data.userInfos
-        return arrayData;
-    };
-
-useEffect(() => {
-    getUser(userId)
-        .then((response) => {
-            // console.log(response)
-            const transformedData = transformDataForGraph(response);
-            setData(transformedData);
-        })
-        .catch((err) => console.log(err));
-}, [userId]);
-
+    useEffect(() => {
+        getUser(userId)
+            .then((response) => {
+                const transformedData = transformDataUserId(response);
+                setData(transformedData);
+            })
+            .catch((err) => console.log(err));
+    }, [userId]);
 
     return (
         <section className="Dashboard">
-            <Fragment>
-                    <Header firstName={data.firstName} />
-                        <div className="Dashboard__charts">
-                            <div className="Dashboard__charts--first-column">
-                                <Weightbar id={userId} />
+            <>
+                <Header firstName={data.firstName} />
+                    <div className="Dashboard__charts">
+                        <div className="Dashboard__charts--first-column">
+                            <Weightbar id={userId} />
                             <div className="Dashboard__charts--first-column2">
                                 <ObjectiveCharts id={userId} />
                                 <RadarCharts id={userId} />
                                 <RadialCharts id={userId} />
                             </div>
-                            </div>
-
-                            <div className="Dashboard__charts--second-column">
-                                <Counter id={userId} />
                         </div>
-                        </div>
-            </Fragment>
+                    <div className="Dashboard__charts--second-column">
+                        <Counter id={userId} />
+                    </div>
+                    </div>
+            </>
         </section>
     )
 }
