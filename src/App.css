@@ -19,4 +19,5 @@ body {
 .app-content {
     display: flex;
     flex-direction: row;
+    height:83%;
 }

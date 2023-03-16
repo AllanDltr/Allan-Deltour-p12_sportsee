@@ -33,6 +33,7 @@ export const transformDataWeightbarGraph = (data) => {
     return arrayData;
   };
 
+//UserId - User Id
 export const transformDataUserId = (data) => {
     const arrayData = data.data.userInfos
     return arrayData;

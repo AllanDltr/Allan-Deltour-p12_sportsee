@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { getUser } from '../datas/api';
 import Header from '../components/Header';
 import Counter from '../components/Counter';
