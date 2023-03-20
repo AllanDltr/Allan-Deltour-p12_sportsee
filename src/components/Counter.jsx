@@ -38,7 +38,7 @@ useEffect(() => {
           <img src={energy} alt="Calories" />
         </div>
         <div className="counter__text">
-          <h3>{data[0]} kCal</h3>
+          <h3 className="counter__number">{data[0]} kCal</h3>
           <p>Calories</p>
       </div>
       </div>
@@ -47,7 +47,7 @@ useEffect(() => {
           <img src={chicken} alt="Protéines" />
         </div>
         <div className="counter__text">
-          <h3>{data[1]} g</h3>
+          <h3 className="counter__number">{data[1]} g</h3>
           <p>Protéines</p>
         </div>
       </div>
@@ -56,7 +56,7 @@ useEffect(() => {
           <img src={apple} alt="Glucides" />
         </div>
         <div className="counter__text">
-          <h3>{data[2]} g</h3>
+          <h3 className="counter__number">{data[2]} g</h3>
           <p>Glucides</p>
         </div>
       </div>
@@ -65,7 +65,7 @@ useEffect(() => {
           <img src={cheeseburger} alt="Lipides" />
         </div>
         <div className="counter__text">
-          <h3>{data[3]} g</h3>
+          <h3 className="counter__number">{data[3]} g</h3>
           <p className="font-grey">Lipides</p>
         </div>
       </div>

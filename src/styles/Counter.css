@@ -18,10 +18,9 @@ h3 {
     display: flex;
     width: 258px;
     height: 124px;
-    background-color: #F5F5F5;
+    background-color: #FBFBFB;
     margin-bottom: 0px;
     border-radius: 5px;
-
 }
 
 .counter__icon {
@@ -44,5 +43,13 @@ h3 {
 
 .counter__text p {
     font-size: 14px;
+    font-weight: 500;
     color: #979797;
+}
+
+.counter__number {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #282D30;
 }

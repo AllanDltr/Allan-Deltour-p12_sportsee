@@ -118,7 +118,7 @@ const WeeklyCharts = (user) => {
             y="5%"
             dominantBaseline="middle"
             fill="#20253A"
-            style={{ fontWeight: 500, fontSize: 14, marginLeft: -50 }}
+            style={{ fontWeight: 500, fontSize: 15, marginLeft: -50 }}
           >
             Activité quotidienne
           </text>

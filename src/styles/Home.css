@@ -3,17 +3,18 @@
     flex: 1 0;
     flex-direction: column;
     padding-left: 30px;
+    height:100%;
 }
 
-*:before,
+/* *:before,
 *:after {
     box-sizing: border-box;
-}
+} */
 
 .Dashboard__charts {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 30px;
     width: 100%;
     padding-left: 50px;
 }
@@ -21,11 +22,11 @@
 .Dashboard__charts--first-column {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 30px;
 }
 
 .Dashboard__charts--first-column2 {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 30px;
 }

@@ -47,13 +47,13 @@ const RadialCharts = (user) => {
                     dominantBaseline={"middle"}>
                     Score
                     </text>
-                    <text className="graph__score__legend" x="50%" y="42%" textAnchor="middle" dominantBaseline={"middle"} style={{fontSize:20, fontWeight:800}} >
+                    <text className="graph__score__legend" x="50%" y="42%" textAnchor="middle" dominantBaseline={"middle"} style={{fontSize:26, fontWeight:700}}>
                         {data * 100}%
                     </text>
-                    <text className="graph__score__legend" x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" >
+                    <text className="graph__score__legend" x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" style={{fontSize:16, fontWeight:500}}>
                     de votre
                     </text>
-                    <text className="graph__score__legend" x="50%" y="58%" textAnchor="middle" dominantBaseline={"middle"} >
+                    <text className="graph__score__legend" x="50%" y="58%" textAnchor="middle" dominantBaseline={"middle"} style={{fontSize:16, fontWeight:500}}>
                     Objectif </text>
                     <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                     <RadialBar background={true} dataKey="score" cornerRadius={20} />

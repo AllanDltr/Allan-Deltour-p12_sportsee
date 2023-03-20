@@ -13,8 +13,9 @@
 	flex-direction: column;
 	gap: 2rem;
 	background-color: #e60000;
-	padding: 1rem;
+	padding: 12px;
 	border: none;
 	color: white;
 	font-size: 10px;
+	text-align: center;
 }
